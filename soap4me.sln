@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soap4me", "soap4me\soap4me.csproj", "{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Release|iPhone.ActiveCfg = Release|iPhone
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Release|iPhone.Build.0 = Release|iPhone
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{441A5BD8-EBD5-4B4B-A75A-D78D47F37CFF}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
