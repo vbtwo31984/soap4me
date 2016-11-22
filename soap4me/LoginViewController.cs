@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Foundation;
 using UIKit;
 
 namespace soap4me
@@ -13,7 +13,17 @@ namespace soap4me
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			// Perform any additional setup after loading the view, typically from a nib.
+
+			var defaults = NSUserDefaults.StandardUserDefaults;
+			var username = defaults.StringForKey("username");
+			var password = defaults.StringForKey("password");
+
+			if (username != null && password != null)
+			{
+				usernameTextField.Text = username;
+				passwordTextField.Text = password;
+				login(null);
+			}
 		}
 
 		public override void DidReceiveMemoryWarning()
@@ -24,10 +34,36 @@ namespace soap4me
 
 		async partial void login(UIButton sender)
 		{
+			updateUIForLogin(true);
+
 			var api = SoapApi.getInstance();
 			var result = (await api.login(usernameTextField.Text, passwordTextField.Text));
-			Console.WriteLine(result);
-			resultLabel.Text = result.ToString();
+
+			if (result.OK)
+			{
+				var defaults = NSUserDefaults.StandardUserDefaults;
+				defaults.SetString("username", usernameTextField.Text);
+				defaults.SetString("password", passwordTextField.Text);
+			}
+			else
+			{
+				updateUIForLogin(false);
+
+			}
+		}
+
+		private void updateUIForLogin(bool loggingIn)
+		{
+			usernameTextField.Enabled = !loggingIn;
+			passwordTextField.Enabled = !loggingIn;
+			loginButton.Enabled = !loggingIn;
+			errorLabel.Hidden = loggingIn;
+			if (loggingIn)
+			{
+				loginActivityIndicator.StartAnimating();
+			}
+			else
+				loginActivityIndicator.StopAnimating();
 		}
 	}
 }

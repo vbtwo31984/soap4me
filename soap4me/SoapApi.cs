@@ -50,15 +50,23 @@ namespace soap4me
 		private const String LOGIN_URL = "http://soap4.me/login/";
 		private const String USER_AGENT = "xbmc for soap";
 
-		public async Task<object> login(String username, String pass)
+		public async Task<LoginResult> login(String username, String pass)
 		{
 			var client = new FlurlClient(LOGIN_URL).WithHeaders(headers);
-			var result = await client.PostUrlEncodedAsync(new
+			LoginResultInternal result;
+			try
 			{
-				login = username,
-				password = pass
-			}).ReceiveJson();
-			return result;
+				result = await client.PostUrlEncodedAsync(new
+				{
+					login = username,
+					password = pass
+				}).ReceiveJson<LoginResultInternal>();
+			}
+			catch (Exception)
+			{
+				result = new LoginResultInternal();
+			}
+			return new LoginResult(result);
 		}
 	}
 }

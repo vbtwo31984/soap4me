@@ -50,16 +50,16 @@
                                     <action selector="login:" destination="BYZ-38-t0r" id="22" eventType="touchUpInside"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result goes  here" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="27" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="15">
-                                <rect key="frame" x="20" y="170" width="560" height="410"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="35" hidesWhenStopped="YES" hidden="YES">
+                                <rect key="frame" x="290" y="170" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="38" translatesAutoresizingMaskIntoConstraints="NO" hidden="YES" text="Invalid credentials. Please try again.">
+                                <rect key="frame" x="20" y="170.5" width="560" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
                                 <nil key="highlightedColor"/>
-                                <constraints>
-                                    <constraint id="30" firstAttribute="width" constant="560"/>
-                                    <constraint id="31" firstAttribute="height" constant="410"/>
-                                </constraints>
                             </label>
                         </subviews>
                         <constraints>
@@ -74,15 +74,19 @@
                             <constraint id="17" firstItem="14" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES"/>
                             <constraint id="19" firstItem="18" firstAttribute="top" secondItem="14" secondAttribute="bottom" constant="8" symbolic="YES"/>
                             <constraint id="20" firstItem="18" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
-                            <constraint id="28" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20"/>
-                            <constraint id="29" firstItem="8bC-Xf-vdC" firstAttribute="bottom" secondItem="27" secondAttribute="bottom" constant="20"/>
+                            <constraint id="36" firstItem="35" firstAttribute="top" secondItem="18" secondAttribute="bottom" constant="8" symbolic="YES"/>
+                            <constraint id="37" firstItem="35" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
+                            <constraint id="39" firstItem="38" firstAttribute="top" secondItem="18" secondAttribute="bottom" constant="8" symbolic="YES"/>
+                            <constraint id="40" firstItem="38" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES"/>
+                            <constraint id="41" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="38" secondAttribute="trailing" constant="20" symbolic="YES"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="usernameTextField" destination="6" id="name-outlet-6"/>
                         <outlet property="passwordTextField" destination="14" id="name-outlet-14"/>
                         <outlet property="loginButton" destination="18" id="name-outlet-18"/>
-                        <outlet property="resultLabel" destination="27" id="name-outlet-27"/>
+                        <outlet property="errorLabel" destination="38" id="name-outlet-38"/>
+                        <outlet property="loginActivityIndicator" destination="35" id="name-outlet-35"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

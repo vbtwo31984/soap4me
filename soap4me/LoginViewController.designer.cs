@@ -16,15 +16,19 @@ namespace soap4me
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel errorLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIActivityIndicatorView loginActivityIndicator { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton loginButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField passwordTextField { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel resultLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -36,6 +40,16 @@ namespace soap4me
 
         void ReleaseDesignerOutlets ()
         {
+            if (errorLabel != null) {
+                errorLabel.Dispose ();
+                errorLabel = null;
+            }
+
+            if (loginActivityIndicator != null) {
+                loginActivityIndicator.Dispose ();
+                loginActivityIndicator = null;
+            }
+
             if (loginButton != null) {
                 loginButton.Dispose ();
                 loginButton = null;
@@ -44,11 +58,6 @@ namespace soap4me
             if (passwordTextField != null) {
                 passwordTextField.Dispose ();
                 passwordTextField = null;
-            }
-
-            if (resultLabel != null) {
-                resultLabel.Dispose ();
-                resultLabel = null;
             }
 
             if (usernameTextField != null) {
