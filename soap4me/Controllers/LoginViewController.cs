@@ -34,7 +34,7 @@ namespace soap4me
 
 		async partial void login(UIButton sender)
 		{
-			updateUIForLogin(true);
+			UpdateUIForLogin(true);
 
 			var api = SoapApi.getInstance();
 			var result = (await api.login(usernameTextField.Text, passwordTextField.Text));
@@ -44,15 +44,16 @@ namespace soap4me
 				var defaults = NSUserDefaults.StandardUserDefaults;
 				defaults.SetString("username", usernameTextField.Text);
 				defaults.SetString("password", passwordTextField.Text);
+				PerformSegue("showMainInterface", this);
 			}
 			else
 			{
-				updateUIForLogin(false);
+				UpdateUIForLogin(false);
 
 			}
 		}
 
-		private void updateUIForLogin(bool loggingIn)
+		private void UpdateUIForLogin(bool loggingIn)
 		{
 			usernameTextField.Enabled = !loggingIn;
 			passwordTextField.Enabled = !loggingIn;
@@ -64,6 +65,19 @@ namespace soap4me
 			}
 			else
 				loginActivityIndicator.StopAnimating();
+		}
+
+		[Action("Logout:")]
+		public void Logout(UIStoryboardSegue segue)
+		{
+			var defaults = NSUserDefaults.StandardUserDefaults;
+			defaults.RemoveObject("username");
+			defaults.RemoveObject("password");
+
+			UpdateUIForLogin(false);
+			errorLabel.Hidden = true;
+			usernameTextField.Text = "";
+			passwordTextField.Text = "";
 		}
 	}
 }
